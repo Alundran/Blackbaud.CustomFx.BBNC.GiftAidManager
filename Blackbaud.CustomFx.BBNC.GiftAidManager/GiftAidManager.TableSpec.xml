@@ -1,0 +1,18 @@
+﻿<TableSpec
+	xmlns="bb_appfx_table"
+	xmlns:c="bb_appfx_commontypes" 
+	ID="e7ee09a7-506d-4296-a327-1f80acc9b05d"
+	Name="Gift Aid Manager"
+	Description="Stores information about gift aid manager details"
+	Author="Blackbaud IMG Support\Derek.Marr"
+	Tablename="USR_GIFTAIDMANAGER"		   
+	IsBuiltIn="false"
+	>
+
+	<!-- define fields on the table -->
+	<Fields>
+    <TextField Name="USERNAME" Length="100" Required="true"/>
+    <EncryptedField Name="PASSWORD" PlainTextLength="100"/>
+	</Fields>
+
+</TableSpec>

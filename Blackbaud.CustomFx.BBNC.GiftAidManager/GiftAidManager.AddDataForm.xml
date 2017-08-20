@@ -1,0 +1,68 @@
+﻿<AddDataFormTemplateSpec 
+	xmlns="bb_appfx_adddataformtemplate"
+	xmlns:c="bb_appfx_commontypes" 
+	ID="f5ba201c-2b61-42ca-8bf3-a13ac00079f4" 
+	Name="Gift Aid Manager Add Data Form"
+	Description="A data form for adding gift aid manager records" 
+	Author="Blackbaud IMG Support\Derek.Marr"
+	DataFormInstanceID="67f24ecb-9a8f-4b7d-a444-8363cc30bbe4" 
+	RecordType="Gift Aid Manager"
+	c:SecurityUIFolder="Gift Aid Manager"
+	FormHeader="Add a gift aid manager"
+	>
+
+	<SPDataForm>
+		<!-- describe the save SP -->
+		<SaveImplementation SPName="USR_USP_DATAFORMTEMPLATE_ADD_GIFTAIDMANAGER">
+			<c:CreateProcedureSQL>
+				<![CDATA[
+create procedure dbo.USR_USP_DATAFORMTEMPLATE_ADD_GIFTAIDMANAGER
+(
+    @ID uniqueidentifier = null output,
+    @CHANGEAGENTID uniqueidentifier = null,
+	@USERNAME nvarchar(100) = '',
+	@PASSWORD nvarchar(max) = ''
+)
+as
+
+set nocount on;
+
+if @ID is null
+    set @ID = newid()
+
+if @CHANGEAGENTID is null  
+    exec dbo.USP_CHANGEAGENT_GETORCREATECHANGEAGENT @CHANGEAGENTID output
+
+declare @CURRENTDATE datetime
+set @CURRENTDATE = getdate()
+
+begin try
+	-- handle inserting the data
+	insert into dbo.USR_GIFTAIDMANAGER
+		(ID, USERNAME, PASSWORD, ADDEDBYID, CHANGEDBYID, DATEADDED, DATECHANGED)
+    values
+		(@ID, @USERNAME, @PASSWORD, @CHANGEAGENTID, @CHANGEAGENTID, @CURRENTDATE, @CURRENTDATE)
+	
+end try
+
+begin catch
+    exec dbo.USP_RAISE_ERROR
+    return 1
+end catch
+
+return 0				
+				]]>
+			</c:CreateProcedureSQL>
+		</SaveImplementation>
+	</SPDataForm>
+
+	<!-- describe fields on the form, which correspond to parameters on the SP.  Note that system parameters 
+	like the context @ID, @CONTEXTID, and @CURRENTAPPUSERID need not be listed. -->
+	<FormMetaData xmlns="bb_appfx_commontypes">
+		<FormFields>
+      <FormField FieldID="USERNAME" Caption="Username" DataType="String" MaxLength="100" />
+      <FormField FieldID="PASSWORD" Caption="Password" DataType="String" MaxLength="0" />
+		</FormFields>
+	</FormMetaData>
+
+</AddDataFormTemplateSpec>
