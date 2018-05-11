@@ -53,6 +53,16 @@ Namespace My
                 Return defaultInstance
             End Get
         End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.WebServiceUrl),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("https://scanstoretest.blackbaudhosting.com/scanstoreonline/scanstore.asmx")>  _
+        Public ReadOnly Property Blackbaud_CustomFx_BBNC_GiftAidManager_com_scanstore_ScanStore() As String
+            Get
+                Return CType(Me("Blackbaud_CustomFx_BBNC_GiftAidManager_com_scanstore_ScanStore"),String)
+            End Get
+        End Property
     End Class
 End Namespace
 

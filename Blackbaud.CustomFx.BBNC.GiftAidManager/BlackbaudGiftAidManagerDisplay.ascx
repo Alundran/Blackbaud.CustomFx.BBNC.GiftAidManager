@@ -5,6 +5,23 @@
     .auto-style2 {
         width: 91px;
     }
+    .auto-style6 {
+        width: 122px;
+        height: 24px;
+    }
+    .auto-style7 {
+        height: 24px;
+    }
+    .auto-style9 {
+        width: 122px;
+    }
+    .auto-style10 {
+        width: 122px;
+        height: 34px;
+    }
+    .auto-style11 {
+        height: 34px;
+    }
 </style>
 <asp:Label ID="lblError" runat="server" Font-Bold="true" ForeColor="red" />
 <br />
@@ -32,6 +49,28 @@
             <td class="auto-style2">&nbsp;</td>
             <td>
                 <asp:Button ID="Button1" runat="server" Text="Submit" />
+                <table style="width:100%;">
+                    <tr>
+                        <td class="auto-style10">
+                            <asp:Label ID="Surname_Label" runat="server" Font-Bold="True" Font-Size="Large" Text="Surname:" Visible="False"></asp:Label>
+                        </td>
+                        <td class="auto-style11">
+                            <asp:Label ID="Surname_Result_Label" runat="server" Visible="False"></asp:Label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="auto-style6">
+                            <asp:Label ID="CreatedOn_Label" runat="server" Font-Bold="True" Font-Size="Large" Text="Created On:" Visible="False"></asp:Label>
+                        </td>
+                        <td class="auto-style7">
+                            <asp:Label ID="CreatedOn_Result_Label" runat="server" Visible="False"></asp:Label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="auto-style9">&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                </table>
             </td>
         </tr>
     </table>

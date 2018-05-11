@@ -75,4 +75,40 @@ Partial Public Class BlackbaudGiftAidManagerDisplay
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents Button1 As Global.System.Web.UI.WebControls.Button
+    
+    '''<summary>
+    '''Surname_Label control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Surname_Label As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''Surname_Result_Label control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Surname_Result_Label As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''CreatedOn_Label control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents CreatedOn_Label As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''CreatedOn_Result_Label control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents CreatedOn_Result_Label As Global.System.Web.UI.WebControls.Label
 End Class

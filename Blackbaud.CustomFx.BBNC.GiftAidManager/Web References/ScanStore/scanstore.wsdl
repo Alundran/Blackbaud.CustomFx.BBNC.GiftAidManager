@@ -1,0 +1,450 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://tempuri.org/ScanStoreOnline/ScanStore" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" targetNamespace="http://tempuri.org/ScanStoreOnline/ScanStore" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/ScanStoreOnline/ScanStore">
+      <s:import namespace="http://www.w3.org/2001/XMLSchema" />
+      <s:element name="Ping">
+        <s:complexType />
+      </s:element>
+      <s:element name="PingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PingResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Abandon">
+        <s:complexType />
+      </s:element>
+      <s:element name="AbandonResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="Authenticated">
+        <s:complexType />
+      </s:element>
+      <s:element name="AuthenticatedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AuthenticatedResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Authenticate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sAccountName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sPassword" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="nApplication" type="tns:SourceApplication" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="SourceApplication">
+        <s:restriction base="s:string">
+          <s:enumeration value="ScanStoreOnline" />
+          <s:enumeration value="RaisersEdge" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="AuthenticateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthenticateResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AuthenticateSiteID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sAccountName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sPassword" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="nApplication" type="tns:SourceApplication" />
+            <s:element minOccurs="1" maxOccurs="1" name="iSiteID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AuthenticateSiteIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthenticateSiteIDResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AuthenticateSerialNo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sAccountName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sPassword" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="nApplication" type="tns:SourceApplication" />
+            <s:element minOccurs="0" maxOccurs="1" name="sClientUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sSerialNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AuthenticateSerialNoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthenticateSerialNoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Search">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="oInDS">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SearchResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetImage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="iImageId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetImageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetImageResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetClientStats">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetClientStatsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetClientStatsResult" type="tns:ArrayOfInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfInt">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="int" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetReportInfo">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetReportInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetReportInfoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="iRpt" type="tns:StatReportList" />
+            <s:element minOccurs="0" maxOccurs="1" name="sFileName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="StatReportList">
+        <s:list>
+          <s:simpleType>
+            <s:restriction base="s:string">
+              <s:enumeration value="GAStatusList" />
+              <s:enumeration value="AtRiskList" />
+              <s:enumeration value="AddlGA" />
+              <s:enumeration value="ConflictDecs" />
+              <s:enumeration value="ConflictDecDates" />
+              <s:enumeration value="AllDocsList" />
+              <s:enumeration value="Misc" />
+            </s:restriction>
+          </s:simpleType>
+        </s:list>
+      </s:simpleType>
+      <s:element name="GetFileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFileResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="PingSoapIn">
+    <wsdl:part name="parameters" element="tns:Ping" />
+  </wsdl:message>
+  <wsdl:message name="PingSoapOut">
+    <wsdl:part name="parameters" element="tns:PingResponse" />
+  </wsdl:message>
+  <wsdl:message name="AbandonSoapIn">
+    <wsdl:part name="parameters" element="tns:Abandon" />
+  </wsdl:message>
+  <wsdl:message name="AbandonSoapOut">
+    <wsdl:part name="parameters" element="tns:AbandonResponse" />
+  </wsdl:message>
+  <wsdl:message name="AuthenticatedSoapIn">
+    <wsdl:part name="parameters" element="tns:Authenticated" />
+  </wsdl:message>
+  <wsdl:message name="AuthenticatedSoapOut">
+    <wsdl:part name="parameters" element="tns:AuthenticatedResponse" />
+  </wsdl:message>
+  <wsdl:message name="AuthenticateSoapIn">
+    <wsdl:part name="parameters" element="tns:Authenticate" />
+  </wsdl:message>
+  <wsdl:message name="AuthenticateSoapOut">
+    <wsdl:part name="parameters" element="tns:AuthenticateResponse" />
+  </wsdl:message>
+  <wsdl:message name="AuthenticateSiteIDSoapIn">
+    <wsdl:part name="parameters" element="tns:AuthenticateSiteID" />
+  </wsdl:message>
+  <wsdl:message name="AuthenticateSiteIDSoapOut">
+    <wsdl:part name="parameters" element="tns:AuthenticateSiteIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="AuthenticateSerialNoSoapIn">
+    <wsdl:part name="parameters" element="tns:AuthenticateSerialNo" />
+  </wsdl:message>
+  <wsdl:message name="AuthenticateSerialNoSoapOut">
+    <wsdl:part name="parameters" element="tns:AuthenticateSerialNoResponse" />
+  </wsdl:message>
+  <wsdl:message name="SearchSoapIn">
+    <wsdl:part name="parameters" element="tns:Search" />
+  </wsdl:message>
+  <wsdl:message name="SearchSoapOut">
+    <wsdl:part name="parameters" element="tns:SearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetImageSoapIn">
+    <wsdl:part name="parameters" element="tns:GetImage" />
+  </wsdl:message>
+  <wsdl:message name="GetImageSoapOut">
+    <wsdl:part name="parameters" element="tns:GetImageResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetClientStatsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetClientStats" />
+  </wsdl:message>
+  <wsdl:message name="GetClientStatsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetClientStatsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetReportInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetReportInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetReportInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetReportInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFileSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFile" />
+  </wsdl:message>
+  <wsdl:message name="GetFileSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFileResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ScanStoreSoap">
+    <wsdl:operation name="Ping">
+      <wsdl:input message="tns:PingSoapIn" />
+      <wsdl:output message="tns:PingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Abandon">
+      <wsdl:input message="tns:AbandonSoapIn" />
+      <wsdl:output message="tns:AbandonSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Authenticated">
+      <wsdl:input message="tns:AuthenticatedSoapIn" />
+      <wsdl:output message="tns:AuthenticatedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Authenticate">
+      <wsdl:input message="tns:AuthenticateSoapIn" />
+      <wsdl:output message="tns:AuthenticateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AuthenticateSiteID">
+      <wsdl:input message="tns:AuthenticateSiteIDSoapIn" />
+      <wsdl:output message="tns:AuthenticateSiteIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AuthenticateSerialNo">
+      <wsdl:input message="tns:AuthenticateSerialNoSoapIn" />
+      <wsdl:output message="tns:AuthenticateSerialNoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Search">
+      <wsdl:input message="tns:SearchSoapIn" />
+      <wsdl:output message="tns:SearchSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetImage">
+      <wsdl:input message="tns:GetImageSoapIn" />
+      <wsdl:output message="tns:GetImageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClientStats">
+      <wsdl:input message="tns:GetClientStatsSoapIn" />
+      <wsdl:output message="tns:GetClientStatsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReportInfo">
+      <wsdl:input message="tns:GetReportInfoSoapIn" />
+      <wsdl:output message="tns:GetReportInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFile">
+      <wsdl:input message="tns:GetFileSoapIn" />
+      <wsdl:output message="tns:GetFileSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ScanStoreSoap" type="tns:ScanStoreSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Ping">
+      <soap:operation soapAction="http://tempuri.org/ScanStoreOnline/ScanStore/Ping" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Abandon">
+      <soap:operation soapAction="http://tempuri.org/ScanStoreOnline/ScanStore/Abandon" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Authenticated">
+      <soap:operation soapAction="http://tempuri.org/ScanStoreOnline/ScanStore/Authenticated" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Authenticate">
+      <soap:operation soapAction="http://tempuri.org/ScanStoreOnline/ScanStore/Authenticate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AuthenticateSiteID">
+      <soap:operation soapAction="http://tempuri.org/ScanStoreOnline/ScanStore/AuthenticateSiteID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AuthenticateSerialNo">
+      <soap:operation soapAction="http://tempuri.org/ScanStoreOnline/ScanStore/AuthenticateSerialNo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Search">
+      <soap:operation soapAction="http://tempuri.org/ScanStoreOnline/ScanStore/Search" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetImage">
+      <soap:operation soapAction="http://tempuri.org/ScanStoreOnline/ScanStore/GetImage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClientStats">
+      <soap:operation soapAction="http://tempuri.org/ScanStoreOnline/ScanStore/GetClientStats" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportInfo">
+      <soap:operation soapAction="http://tempuri.org/ScanStoreOnline/ScanStore/GetReportInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFile">
+      <soap:operation soapAction="http://tempuri.org/ScanStoreOnline/ScanStore/GetFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ScanStore">
+    <documentation xmlns="http://schemas.xmlsoap.org/wsdl/" />
+    <wsdl:port name="ScanStoreSoap" binding="tns:ScanStoreSoap">
+      <soap:address location="https://scanstoretest.blackbaudhosting.com/scanstoreonline/scanstore.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
